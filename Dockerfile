@@ -9,6 +9,7 @@ COPY . ./
 
 # Install production dependencies.
 RUN pip install Flask gunicorn
+RUN pip install -U flask-cors
 RUN pip install poliastro
 
 # Run the web service on container startup. Here we use the gunicorn

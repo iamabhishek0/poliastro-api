@@ -4,8 +4,10 @@ import poliastro
 from astropy.units.core import PrefixUnit
 import importlib
 from poliastro.twobody import Orbit
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 app.config['JSON_SORT_KEYS'] = False
 app.debug = True
 
@@ -46,7 +48,7 @@ def orbit_example():
         pericenter_radius = final_orbit.r_p.value
         apocenter_radius = final_orbit.r_a.value
         inclination = final_orbit.inc.value
-        reference_frame = str(final_orbit.frame)
+        reference_frame = str(final_orbit.get_frame())
         attractor = str(final_orbit.attractor)
         epoch = final_orbit.epoch.value
 
