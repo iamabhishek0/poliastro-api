@@ -48,7 +48,7 @@ def orbit_example():
         pericenter_radius = final_orbit.r_p.value
         apocenter_radius = final_orbit.r_a.value
         inclination = final_orbit.inc.value
-        reference_frame = str(final_orbit.get_frame())
+        reference_frame = str(final_orbit.frame)
         attractor = str(final_orbit.attractor)
         epoch = final_orbit.epoch.value
 
