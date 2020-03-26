@@ -94,7 +94,7 @@ def orbit_plot():
         b = final_orbit.to_json()
         resp = Response(b)
 
-        resp.headers['Content-Type'] = 'application/xml'
+        resp.headers['Content-Type'] = 'application/json'
         # resp.headers['Content-Transfer-Encoding'] = 'base64'
         resp.headers['Access-Control-Allow-Origin'] = '*'
         return resp
