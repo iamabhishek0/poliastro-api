@@ -59,7 +59,7 @@ def orbit_example():
             return jsonify(pericenter_radius=pericenter_radius, apocenter_radius=apocenter_radius, inclination=inclination, reference_frame=reference_frame[1:-1], attractor=attractor, epoch=epoch)
 
 @app.route('/orbit-plot', methods=['GET', 'POST'])
-@cross_origin(origins='*', allow_headers=['Content-Type'], methods=[GET, HEAD, POST, OPTIONS, PUT, PATCH, DELETE])
+@cross_origin(origins='*', allow_headers=['Content-Type'])
 def orbit_plot():
     if request.is_json:
 
@@ -96,7 +96,7 @@ def orbit_plot():
 
         resp.headers['Content-Type'] = 'application/json'
         # resp.headers['Content-Transfer-Encoding'] = 'base64'
-        resp.headers['Access-Control-Allow-Origin'] = '*'
+        # resp.headers['Access-Control-Allow-Origin'] = '*'
         return resp
 
 if (__name__ == '__main__'):
