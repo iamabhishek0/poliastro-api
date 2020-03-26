@@ -88,15 +88,9 @@ def orbit_plot():
         # Calculating Orbit
         final_orbit = Orbit.from_vectors(body, r, v)
         final_orbit = final_orbit.plot(interactive=True, use_3d=True)
-        print(final_orbit['data'],"\n \n \n \n",final_orbit['layout'])
-        # data = dict(final_orbit['data'])
-        # layout = dict(final_orbit['layout'])
         b = final_orbit.to_json()
         resp = Response(b)
-
         resp.headers['Content-Type'] = 'application/json'
-        # resp.headers['Content-Transfer-Encoding'] = 'base64'
-        # resp.headers['Access-Control-Allow-Origin'] = '*'
         return resp
 
 if (__name__ == '__main__'):
