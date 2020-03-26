@@ -11,7 +11,7 @@ from flask_cors import cross_origin, CORS
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
 app.debug = True
-CORS(app, resources=r'/orbit-plot')
+# CORS(app, resources=r'/orbit-plot')
 
 @app.route('/')
 def hello_world():
@@ -59,7 +59,7 @@ def orbit_example():
             return jsonify(pericenter_radius=pericenter_radius, apocenter_radius=apocenter_radius, inclination=inclination, reference_frame=reference_frame[1:-1], attractor=attractor, epoch=epoch)
 
 @app.route('/orbit-plot', methods=['GET', 'POST'])
-@cross_origin(origin='*', allow_headers=['Content-Type'])
+@cross_origin(origins='*', allow_headers=['Content-Type'], methods=[GET, HEAD, POST, OPTIONS, PUT, PATCH, DELETE])
 def orbit_plot():
     if request.is_json:
 
